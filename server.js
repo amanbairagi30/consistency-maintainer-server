@@ -10,5 +10,8 @@ const port = process.env.PORT || 5000;
 const usersRoute = require("./routes/usersRoute") 
 app.use("/api/users", usersRoute);
 
+const taskRoute = require("./routes/taskroutes") 
+app.use("/api/users", taskRoute);
+
 app.listen(port , ()=> console.log(`Node Js server started at ${port}`))
 

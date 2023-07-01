@@ -241,6 +241,11 @@ router.put("/:id/reset-password/:token", async (req, res) => {
         console.log("after setPass")
         setNewPass.save();
 
+        res.send({
+            success: true,
+            message: "Your password has been updated",
+        })
+
     } catch (error) {
         res.send({
             success: false,
