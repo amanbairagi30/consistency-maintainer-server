@@ -159,7 +159,7 @@ router.post("/login", async (req, res) => {
 
 
 // get current user
-router.post("/get-current-user", authMiddleware, async (req, res) => {
+router.get("/get-current-user", authMiddleware, async (req, res) => {
     try {
         const user = await User.findById(req.body.userId);
         res.send({

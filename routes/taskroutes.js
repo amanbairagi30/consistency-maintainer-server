@@ -30,9 +30,20 @@ router.post("/add-todo", authMiddleware, async (req, res) => {
 })
 
 // get all the todos
-router.get("/get-all-todo", async (req, res) => {
+router.post("/get-all-todo", authMiddleware, async (req, res) => {
     try {
-        const todos = await task.find();
+        const { userId } = req.body
+        console.log(userId)
+        let filters = {};
+
+        if(userId){
+            filters.userId = userId
+        }
+        console.log("filters" , filters)
+
+        const todos = await task.find(filters);
+
+        console.log(todos)
         res.send({
             success: true,
             data: todos,

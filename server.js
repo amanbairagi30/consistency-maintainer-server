@@ -13,5 +13,8 @@ app.use("/api/users", usersRoute);
 const taskRoute = require("./routes/taskroutes") 
 app.use("/api/users", taskRoute);
 
+const contributionRoute = require("./routes/contributionRoute") 
+app.use("/api/contributions", contributionRoute);
+
 app.listen(port , ()=> console.log(`Node Js server started at ${port}`))
 
