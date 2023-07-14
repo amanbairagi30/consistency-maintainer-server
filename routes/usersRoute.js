@@ -47,7 +47,7 @@ router.post("/register", async (req, res) => {
         await token.save();
         console.log(token)
 
-        const link = `http://localhost:3000/users/confirm/${token.token}`
+        const link = `${process.env.FRONT_URL}/users/confirm/${token.token}`
 
         await EmailHandler(myuser.email, link , 1)
 
