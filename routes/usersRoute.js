@@ -203,7 +203,7 @@ router.post("/send-email", async (req, res) => {
     console.log(token)
     console.log("Before link")
 
-    const link = `http://localhost:3000/users/${myuser._id}/reset-password/${token.token}`
+    const link = `${process.env.FRONT_URL}/users/${myuser._id}/reset-password/${token.token}`
     console.log("After link")
 
     await EmailHandler(myuser.email, link , 2)
